@@ -1,14 +1,10 @@
 # Win7 手工配置 Apache+Mysql+PHP
 
-1.打开
-		D:\AMP\Apahce2.4\conf\httpd.conf
+1.打开D:\AMP\Apahce2.4\conf\httpd.conf
 2.在D盘新建一个文件夹Sites作为虚拟主机目录
-3.搜索DocumentRoot，修改	
-		Directory "D:/Sites"
-4.打开
-		D:\AMP\Apahce2.4\conf\extra\httpd-vhosts.conf
-5.修改DocumentRoot为你的虚拟主机目录
-		DocumentRoot "D:/Sites"
+3.搜索DocumentRoot，修改Directory "D:/Sites"
+4.打开D:\AMP\Apahce2.4\conf\extra\httpd-vhosts.conf
+5.修改DocumentRoot为你的虚拟主机目录DocumentRoot "D:/Sites"
 6.重启Apache
 7.解压php
 8.前往解压好的php文件夹
@@ -25,18 +21,18 @@
 
 13.搜索  <IfModule mime_module>
 14.在  <IfModule mime_module>加上
->    # Add Handler allows you to analyze the php file
->    AddType application/x-httpd-php .php
+`    # Add Handler allows you to analyze the php file
+    AddType application/x-httpd-php .php`
 15.再加上
 
 ###php5版本		
-		PHPIniDir "D:/Program Files/php"
+`		PHPIniDir "D:/Program Files/php"
 		LoadModule php5_module "D:/AMP/php/php5apache2_4.dll"
 		LoadFile "D:/AMP/php/libeay32.dll"
-		LoadFile "D:/AMP/php/ssleay32.dll"
+		LoadFile "D:/AMP/php/ssleay32.dll"`
 ###php7版本	
-		PHPIniDir "D:/AMP/php"
-		LoadModule php7_module "D:/AMP/php/php7apache2_4.dll"
+		`PHPIniDir "D:/AMP/php"
+		LoadModule php7_module "D:/AMP/php/php7apache2_4.dll"`
 
 16.新建一个php文件 放在虚拟主机
 17.重启Apache
