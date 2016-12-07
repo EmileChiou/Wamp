@@ -1,31 +1,21 @@
-# Win7 手工搭建 Apache+Mysql+PHP
-1.打开D:\Program Files\Apache Software Foundation\Apahce2.4\conf\httpd.conf
-2.搜素httpd-vhosts.conf,去掉前面注释
+# Win7 手工配置 Apache+Mysql+PHP
 
-3.打开D:\Program Files\Apache Software Foundation\Apahce2.4\htdocs 新建一个文件夹Sites(emile.com)作为虚拟主机目录
-4.打开D:\Program Files\Apache Software Foundation\Apahce2.4\conf\extra\httpd-vhosts.conf
-
+1.打开D:\AMP\Apahce2.4\conf\httpd.conf
+2.在D盘新建一个文件夹Sites作为虚拟主机目录
+3.搜索DocumentRoot，修改	
+	Directory "D:/Sites"
+4.打开D:\AMP\Apahce2.4\conf\extra\httpd-vhosts.conf
 5.修改DocumentRoot为你的虚拟主机目录
-
-		DocumentRoot "D:/Program Files/Apache Software Foundation/Apahce2.4/htdocs/Sites"
-    	ServerName emile.com
-
-6.前往 C:\Windows\system32\driver\etcs\hosts
-7.在最后增加词条
-
-	 127.0.0.1       emile.com 
-
- (emile.com是你的虚拟主机域名ServerName)
+	DocumentRoot "D:/Sites"
 8.重启Apache
-
-
-Apache - php
 9.解压php
 10.前往解压好的php文件夹
 11.复制一份  php.ini-development  取名为php.ini
 12.搜索  extension_dir = "ext" 去掉前面的注释 ; 
 13.修改 extension_dir = "D:/Program Files/php/ext（你的php/ext文件的绝对路径）"
 14.打开D:\Program Files\Apache Software Foundation\Apache2.4\conf\httpd.conf
+
+## Apache To php
 15.搜索><IfModule mime_module>
 16.在><IfModule mime_module>加上
 >   # Add Handler allows you to analyze the php file
