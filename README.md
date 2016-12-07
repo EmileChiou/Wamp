@@ -26,12 +26,14 @@ Apache - php
 12.搜索  extension_dir = "ext" 去掉前面的注释 ; 
 13.修改 extension_dir = "D:/Program Files/php/ext（你的php/ext文件的绝对路径）"
 14.打开D:\Program Files\Apache Software Foundation\Apache2.4\conf\httpd.conf
-15.搜索<IfModule mime_module>
-16.在<IfModule mime_module>前一行   加上词条   AddType application/x-httpd-php .php
+15.搜索><IfModule mime_module>
+16.在><IfModule mime_module>加上
+>   # Add Handler allows you to analyze the php file
+    AddType application/x-httpd-php .php
 17.再加上
 
 ###①php5版本		
-		>PHPIniDir "D:/Program Files/php"
+		PHPIniDir "D:/Program Files/php"
 		LoadModule php5_module "D:/Program Files/php/php5apache2_4.dll"
 		LoadFile "D:/Program Files/php/libeay32.dll"
 		LoadFile "D:/Program Files/php/ssleay32.dll"
@@ -41,7 +43,7 @@ Apache - php
 		</IfModule>
 
 ###②php7版本	
-		>PHPIniDir "D:/AMP/php"
+		PHPIniDir "D:/AMP/php"
 		LoadModule php7_module "D:/AMP/php/php7apache2_4.dll"
 		<IfModule mime_module>
 		    TypesConfig conf/mime.types
