@@ -1,6 +1,5 @@
 # Win7 手工配置 Apache+Mysql+PHP
 
-打开`D:\AMP\Apahce2.4\conf\httpd.conf`
 在D盘新建一个文件夹Sites作为虚拟主机目录
 搜索`DocumentRoot`，修改`Directory "D:/Sites"`
 打开`D:\AMP\Apahce2.4\conf\extra\httpd-vhosts.conf`
@@ -13,10 +12,11 @@
 打开`D:\AMP\Apache2.4\conf\httpd.conf`
 
 ## Apache To php
+打开`D:\AMP\Apahce2.4\conf\httpd.conf`
 搜索  `<IfModule mime_module>`
 在  `<IfModule mime_module>` 加上
-    # Add Handler allows you to analyze the php file
-    AddType application/x-httpd-php .php
+`# Add Handler allows you to analyze the php file
+AddType application/x-httpd-php .php`
 再加上
 
 ###php5版本		
