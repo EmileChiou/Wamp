@@ -1,5 +1,4 @@
-# Wamp
-
+# Win7 手工搭建 Apache+Mysql+PHP
 1.打开D:\Program Files\Apache Software Foundation\Apahce2.4\conf\httpd.conf
 2.搜素httpd-vhosts.conf,去掉前面注释
 
@@ -30,10 +29,24 @@ Apache - php
 15.搜索<IfModule mime_module>
 16.在<IfModule mime_module>前一行   加上词条   AddType application/x-httpd-php .php
 17.再加上
+
+①php5版本		
 		PHPIniDir "D:/Program Files/php"
 		LoadModule php5_module "D:/Program Files/php/php5apache2_4.dll"
 		LoadFile "D:/Program Files/php/libeay32.dll"
 		LoadFile "D:/Program Files/php/ssleay32.dll"
+		<IfModule mime_module>
+    		    TypesConfig conf/mime.types
+    		    AddType application/x-httpd-php .php
+		</IfModule>
+
+②php7版本	
+		PHPIniDir "D:/AMP/php"
+		LoadModule php7_module "D:/AMP/php/php7apache2_4.dll"
+		<IfModule mime_module>
+		    TypesConfig conf/mime.types
+		    AddType application/x-httpd-php .php
+		</IfModule>
 
 18.新建一个php文件 放在虚拟主机
 19.重启Apache
