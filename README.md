@@ -30,8 +30,8 @@ Apache - php
 16.在<IfModule mime_module>前一行   加上词条   AddType application/x-httpd-php .php
 17.再加上
 
-①php5版本		
-		PHPIniDir "D:/Program Files/php"
+###①php5版本		
+		>PHPIniDir "D:/Program Files/php"
 		LoadModule php5_module "D:/Program Files/php/php5apache2_4.dll"
 		LoadFile "D:/Program Files/php/libeay32.dll"
 		LoadFile "D:/Program Files/php/ssleay32.dll"
@@ -40,8 +40,8 @@ Apache - php
     		    AddType application/x-httpd-php .php
 		</IfModule>
 
-②php7版本	
-		PHPIniDir "D:/AMP/php"
+###②php7版本	
+		>PHPIniDir "D:/AMP/php"
 		LoadModule php7_module "D:/AMP/php/php7apache2_4.dll"
 		<IfModule mime_module>
 		    TypesConfig conf/mime.types
