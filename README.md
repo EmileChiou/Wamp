@@ -54,6 +54,7 @@ AddType application/x-httpd-php .php`
 找到Apache的httpd.conf配置文件，编辑器打开。 
 
 找到 
+
 		<Directory /> 
 		　　Options FollowSymLinks 
 		　　AllowOverride None 
