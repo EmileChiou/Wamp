@@ -48,3 +48,22 @@ AddType application/x-httpd-php .php`
 打开 php.ini 搜索 extension=php_mysqli.dll  
 去掉 ;extension=php_mysql.dll  前面的注释  ;
 重启apache
+
+
+##让apache开启.htaccess
+找到Apache的httpd.conf配置文件，编辑器打开。 
+
+找到 
+		<Directory /> 
+		　　Options FollowSymLinks 
+		　　AllowOverride None 
+		</Directory>
+
+修改为 
+
+		<Directory /> 
+		　　Options FollowSymLinks 
+		　　AllowOverride All 
+		</Directory> 
+		
+重启apache
