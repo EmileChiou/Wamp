@@ -29,6 +29,22 @@ AddType application/x-httpd-php .php`
 		LoadModule php7_module "D:/AMP/php/php7apache2_4.dll"
 		
 ## 安装Mysql
+
+下载mysql压缩包，解压到目录，进入目录，
+复制一份`my-default.ini`为`my.ini`
+
+		basedir = PATH:/to/mysql
+		datadir = PATH:/to/mysql/data
+		port = 3306
+		character-set-server = utf8
+设置环境变量Path里，添加一条：`Path：\to\mysql\bin;`。
+打开命令提示符，输入`mysqld install`,回车；
+输入`mysqld --defaults-file="PATH:\to\mysql\my.ini" --initialize --explicit_defaults_for_timestamp`
+
+完成后输入`net start mysql`，登录`mysql -u root -p`,默认空密码，按回车，修改密码，`set password = password('yourpassword');`
+
+
+##php-mysql
 打开 php.ini 搜索 extension=php_mysqli.dll  
 去掉 ;extension=php_mysql.dll  前面的注释  ;
 重启apache
