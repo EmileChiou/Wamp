@@ -8,8 +8,11 @@
 解压php
 ##配置php.ini
 1.复制一份`php.ini-development`OR`php.ini-production`取名为`php.ini`
+
 2.搜索  `extension_dir = "ext"`去掉前面的注释 ; 
+
 3.修改 `extension_dir = "./ext"`
+
 4.开启相应的扩展库功能，找到下面的几行，把前面的“;”去掉
 `extension=php_curl.dll          -----虚拟路径
 extension=php_gd2.dll          -----GD库
@@ -25,11 +28,13 @@ extension=php_xmlrpc.dll`
 `;session.save_path = "/tmp"`
  修改为：
 `session.save_path = "D:/data/soft/Apache/phpSessionTmp"`
+
 6.配置PHP的文件上传功能
 在使用PHP文件上传功能时，必须指定一个临时文件夹以完成文件上传功能。下面在`D:\data\soft\Apache`文件夹里创建一个`phpFileUploadTmp`文件夹，然后在`php.ini`文件中找到
 `;upload_tmp_dir =`
 修改为：
 `upload_tmp_dir = "D:/data/soft/Apache/phpFileUploadTmp"`
+
 7.修改`date.timezone`，默认为美国时间，如果不修改会报错
 找到
 `;date.timezone =`
