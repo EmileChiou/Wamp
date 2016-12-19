@@ -6,9 +6,36 @@
 修改DocumentRoot为你的虚拟主机目录`DocumentRoot "D:/Sites"`
 
 解压php
+##配置php.ini
 复制一份`php.ini-development`OR`php.ini-production`取名为`php.ini`
 搜索  `extension_dir = "ext"`去掉前面的注释 ; 
 修改 `extension_dir = "./ext"`
+开启相应的扩展库功能，找到下面的几行，把前面的“;”去掉
+`extension=php_curl.dll          -----虚拟路径
+extension=php_gd2.dll          -----GD库
+extension=php_openssl.dll    -----ssl  github经常用到
+extension=php_mbstring.dll
+extension=php_mysql.dll
+extension=php_mysqli.dll
+extension=php_pdo_mysql.dll
+extension=php_xmlrpc.dll`
+
+配置PHP的Session功能
+在使用session功能时，必须配置session文件在服务器上的保存目录，否则无法使用session，需要建一个可读写的目录文件夹，那么我们在WAMP文件夹里phpSessionTmp目录，然后在`php.ini`文件中找到
+`;session.save_path = "/tmp"`
+ 修改为：
+`session.save_path = "D:/data/soft/Apache/phpSessionTmp"`
+配置PHP的文件上传功能
+在使用PHP文件上传功能时，必须指定一个临时文件夹以完成文件上传功能。下面在`D:\data\soft\Apache`文件夹里创建一个`phpFileUploadTmp`文件夹，然后在`php.ini`文件中找到
+`;upload_tmp_dir =`
+修改为：
+`upload_tmp_dir = "D:/data/soft/Apache/phpFileUploadTmp"`
+修改`date.timezone`，默认为美国时间，如果不修改会报错
+找到
+`;date.timezone =`
+修改为：
+`date.timezone = Asia/Shanghai`
+
 打开`D:\AMP\Apache2.4\conf\httpd.conf`
 
 ## Apache To php
