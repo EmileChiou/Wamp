@@ -2,7 +2,7 @@
 
 在D盘新建一个文件夹Sites作为虚拟主机目录
 搜索`DocumentRoot`，修改`Directory "D:/Sites"`
-打开`D:\AMP\Apahce2.4\conf\extra\httpd-vhosts.conf`
+打开`D:\AMP\Apahce2.4\conf\httpd.conf`
 修改DocumentRoot为你的虚拟主机目录`DocumentRoot "D:/Sites"`
 
 解压php
@@ -60,6 +60,8 @@ AddType application/x-httpd-php .php`
 		PHPIniDir "D:/AMP/php"
 		LoadModule php7_module "D:/AMP/php/php7apache2_4.dll"
 		
+配置好环境变量，打开终端，`httpd -k install;`
+
 ## 安装Mysql
 
 下载mysql压缩包，解压到目录，进入目录，
@@ -69,12 +71,20 @@ AddType application/x-httpd-php .php`
 		datadir = PATH:/to/mysql/data
 		port = 3306
 		character-set-server = utf8
-设置环境变量Path里，添加一条：`Path：\to\mysql\bin;`。
-打开命令提示符，输入`mysqld install`,回车；
-输入`mysqld --defaults-file="PATH:\to\mysql\my.ini" --initialize --explicit_defaults_for_timestamp`
-
-完成后输入`net start mysql`，登录`mysql -u root -p`,默认空密码，按回车，修改密码，`set password = password('yourpassword');`
-
+		skip-grant-tables
+		
+设置环境变量Path里，添加一条：`Path：\to\mysql\bin;`。打开终端，先后输入:
+命令：`mysqld --initialize`      直接初始化mysql，生成data文件夹中的文件.
+命令：`mysqld -install`          安装mysql.
+命令：`net start mysql`          启动服务器.
+命令：`mysql -u root -p`         回车，回车，进入mysql服务.
+命令：`update user set authentication_string=password('123456') where user='root' and Host = 'localhost';` mysql服务设置密码.
+命令：`mysql> flush privileges;`  更新权限.
+命令：`quit`                     退出mysql.
+服务打开`my.ini`,把`skip-grant-tables`注释掉.
+命令：`mysql -u root -p`         回车，`123456`,回车进入mysql服务.
+命令：`set password for 'root'@'localhost'=password('123456');`
+命令：`quit`                     退出mysql.
 
 ##php-mysql
 打开 php.ini 搜索 extension=php_mysqli.dll  
