@@ -1,12 +1,32 @@
 # Win7 手工配置 Apache+Mysql+PHP
 
-在D盘新建一个文件夹Sites作为虚拟主机目录
-
-搜索`DocumentRoot`，修改`Directory "D:/Sites"`
-
 打开`D:\AMP\Apahce2.4\conf\httpd.conf`
 
-修改DocumentRoot为你的虚拟主机目录`DocumentRoot "D:/Sites"`
+搜索`ServerRoot`，修改`ServerRoot: "Path:/to/apache"`
+
+搜索`DocumentRoot`,修改`DocumentRoot "Path:/to/VirtualHost"`，修改`Directory: "Path:/to/VirtualHost"`
+
+搜索`rewrite_module`,去除前面注释符号`#`
+
+##让apache开启.htaccess
+
+找到Apache的httpd.conf配置文件，编辑器打开。 
+
+找到 
+
+		<Directory /> 
+		　　Options FollowSymLinks 
+		　　AllowOverride None 
+		</Directory>
+
+修改为 
+
+		<Directory /> 
+		　　Options FollowSymLinks 
+		　　AllowOverride All 
+		</Directory> 
+		
+重启apache
 
 解压php
 
@@ -18,23 +38,23 @@
 
 3.修改 `extension_dir = "./ext"`
 
-4.开启相应的扩展库功能，找到下面的几行，把前面的“;”去掉
+4.开启相应的扩展库功能，找到下面的几行，把前面的注释符号“;”去掉
 
-`extension=php_curl.dll          -----虚拟路径
+`extension=php_curl.dll`      		-----curl库
 
-extension=php_gd2.dll          -----GD库
+`extension=php_gd2.dll`        		-----GD库
 
-extension=php_openssl.dll    -----ssl  github经常用到
+`extension=php_openssl.dll`    		-----ssl  github经常用到
 
-extension=php_mbstring.dll
+`extension=php_mbstring.dll`		-----mbstring库
 
-extension=php_mysql.dll
+`extension=php_mysql.dll`
 
-extension=php_mysqli.dll
+`extension=php_mysqli.dll`
 
-extension=php_pdo_mysql.dll
+`extension=php_pdo_mysql.dll`
 
-extension=php_xmlrpc.dll`
+`extension=php_xmlrpc.dll`
 
 5.配置PHP的Session功能
 
@@ -44,17 +64,17 @@ extension=php_xmlrpc.dll`
 
  修改为：
  
-`session.save_path = "D:/data/soft/Apache/phpSessionTmp"`
+`session.save_path = "Path:/to/php/phpSessionTmp"`
 
 6.配置PHP的文件上传功能
 
-在使用PHP文件上传功能时，必须指定一个临时文件夹以完成文件上传功能。下面在`D:\data\soft\Apache`文件夹里创建一个`phpFileUploadTmp`文件夹，然后在`php.ini`文件中找到
+在使用PHP文件上传功能时，必须指定一个临时文件夹以完成文件上传功能。下面在`Path:/to/php`文件夹里创建一个`phpFileUploadTmp`文件夹，然后在`php.ini`文件中找到
 
 `;upload_tmp_dir =`
 
 修改为：
 
-`upload_tmp_dir = "D:/data/soft/Apache/phpFileUploadTmp"`
+`upload_tmp_dir = "Path:/to/php/phpFileUploadTmp"`
 
 7.修改`date.timezone`，默认为美国时间
 
@@ -76,9 +96,9 @@ extension=php_xmlrpc.dll`
 
 在  `<IfModule mime_module>` 加上
 
-`# Add Handler allows you to analyze the php file
+`# Add Handler allows you to analyze the php file`
 
-AddType application/x-httpd-php .php`
+`AddType application/x-httpd-php .php`
 
 再加上
 
@@ -137,23 +157,3 @@ AddType application/x-httpd-php .php`
 
 重启apache
 
-
-##让apache开启.htaccess
-
-找到Apache的httpd.conf配置文件，编辑器打开。 
-
-找到 
-
-		<Directory /> 
-		　　Options FollowSymLinks 
-		　　AllowOverride None 
-		</Directory>
-
-修改为 
-
-		<Directory /> 
-		　　Options FollowSymLinks 
-		　　AllowOverride All 
-		</Directory> 
-		
-重启apache
