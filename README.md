@@ -1,6 +1,6 @@
 # Win7 手工配置 Apache+Mysql+PHP
 
-前往 `http://www.apachehaus.com/cgi-bin/download.plx`，下载你需要的Apache版本
+前往 `http://www.apachehaus.com/cgi-bin/download.plx`，下载你需要的Apache2.4版本
 
 解压到你的目录
 
