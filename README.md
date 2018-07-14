@@ -126,7 +126,9 @@
 
 ## 安装Mysql
 
-下载mysql压缩包，解压到目录，进入目录，
+下载mysql压缩包 `https://dev.mysql.com/downloads/mysql/`
+
+解压到目录，进入目录，
 
 复制一份`my-default.ini`为`my.ini`
 
@@ -160,3 +162,11 @@
 
 命令：`quit`                     退出mysql.
 
+
+
+
+# 删除MYSQL
+
+`mysql -remove`
+或者
+`sc delete mysql`
