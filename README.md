@@ -148,13 +148,19 @@
 
 命令：`mysql -u root -p`         回车，回车，进入mysql服务.
 
+命令：`use mysql`          先选择一个表.
+
 命令：`update user set authentication_string=password('123456') where user='root' and Host = 'localhost';` mysql服务设置密码.
 
 命令：`mysql> flush privileges;`  更新权限.
 
-命令：`quit`                     退出mysql.
+命令：`quit`                     退出mysql.
+
+命令：`net stop mysql`         停止服务器.
 
 服务打开`my.ini`,把`skip-grant-tables`注释掉.
+
+命令：`net start mysql`          启动服务器.
 
 命令：`mysql -u root -p`         回车，`123456`,回车进入mysql服务.
 
