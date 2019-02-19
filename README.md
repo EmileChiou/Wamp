@@ -43,17 +43,17 @@
 再加上
 
 ###php5版本	
-`
+```
 		PHPIniDir "D:/Program Files/php"
 		LoadModule php5_module "D:/AMP/php/php5apache2_4.dll"
 		LoadFile "D:/AMP/php/libeay32.dll"
 		LoadFile "D:/AMP/php/ssleay32.dll"
-`
+```
 ###php7版本	
-`
+```
 		PHPIniDir "D:/AMP/php"
 		LoadModule php7_module "D:/AMP/php/php7apache2_4.dll"
-`
+```
 重启apache
 
 
