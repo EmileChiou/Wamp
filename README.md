@@ -44,15 +44,15 @@
 
 ###php5版本	
 ```
-		PHPIniDir "D:/Program Files/php"
-		LoadModule php5_module "D:/AMP/php/php5apache2_4.dll"
-		LoadFile "D:/AMP/php/libeay32.dll"
-		LoadFile "D:/AMP/php/ssleay32.dll"
+		PHPIniDir "Path:/to/php"
+		LoadModule php5_module "Path:/to/php/php5apache2_4.dll"
+		LoadFile "Path:/to/php/libeay32.dll"
+		LoadFile "Path:/to/php/ssleay32.dll"
 ```
 ###php7版本	
 ```
-		PHPIniDir "D:/AMP/php"
-		LoadModule php7_module "D:/AMP/php/php7apache2_4.dll"
+		PHPIniDir "Path:/to/php"
+		LoadModule php7_module "Path:/to/php/php7apache2_4.dll"
 ```
 重启apache
 
@@ -135,12 +135,14 @@
 
 复制一份`my-default.ini`为`my.ini`
 
-		basedir = PATH:/to/mysql
-		datadir = PATH:/to/mysql/data
+```
+		basedir = Path:/to/mysql
+		datadir = Path:/to/mysql/data
 		port = 3306
 		character-set-server = utf8
 		skip-grant-tables
-		
+```
+
 设置环境变量Path里，添加一条：`Path：\to\mysql\bin;`。打开终端，先后输入:
 
 命令：`mysqld --initialize`      直接初始化mysql，生成data文件夹中的文件.
