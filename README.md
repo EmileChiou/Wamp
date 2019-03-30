@@ -1,21 +1,33 @@
 # Win7 手动搭配 Apache+Mysql+PHP
+
 0.`Visual C++ `很重要，前往你的电脑上的 `控制面板\所有控制面板项\程序和功能`查看你电脑已安装的`Visual C++`版本
+
 不同版本的php和apache对`Visual C++`的版本要求不一样
+
 官方下载地址
+
 Visual C++ Redistributable for Visual Studio 2012 （即VC11）
+
 `https://www.microsoft.com/en-us/download/details.aspx?id=30679`
+
 Visual C++ Redistributable for Visual Studio 2013 （即VC12）
+
 `https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=40784`
+
 Visual C++ Redistributable for Visual Studio 2015 （即VC14）
+
 `https://www.microsoft.com/en-us/download/details.aspx?id=53840`
 
 1.安装PHP, 前往 `https://windows.php.net/download/`，下载你需要的php版本
+
 下载完成后，解压到你的目录
 
 2.前往 `http://www.apachehaus.com/cgi-bin/download.plx`，下载你需要的Apache版本
+
 下载完成后，解压到你的目录
 
 3.下载mysql压缩包 `https://dev.mysql.com/downloads/mysql/`，下载你需要的mysql版本
+
 下载完成后，解压到你的目录
 
 # 配置Apache
@@ -23,9 +35,12 @@ Visual C++ Redistributable for Visual Studio 2015 （即VC14）
 打开`Path:/to/Apahce2.4/conf/httpd.conf`
 
 1.配置Apache服务的目录
+
 搜索`ServerRoot`，修改`ServerRoot: "Path:/to/Apahce2.4"`
 
+
 2.配置虚拟主机目录，即浏览器访问`localhost`时指向的目录
+
 搜索`DocumentRoot`,修改`DocumentRoot "Path:/to/VirtualHost"`，修改`Directory: "Path:/to/VirtualHost"`
 
 
@@ -153,8 +168,8 @@ Visual C++ Redistributable for Visual Studio 2015 （即VC14）
 
 
 ## 安装Mysql
-官方安装参考手册`https://dev.mysql.com/doc/refman/5.7/en/windows-install-archive.html`（链接为5.7.18以上版本查看其他版本可以网页在右上角切换） 
 
+官方安装参考手册`https://dev.mysql.com/doc/refman/5.7/en/windows-install-archive.html`（链接为5.7.18以上版本查看其他版本可以网页在右上角切换） 
 
 
 ### 1.配置my.ini
@@ -162,8 +177,8 @@ Visual C++ Redistributable for Visual Studio 2015 （即VC14）
 进入mysql的目录
 
 #### mysql 5.7.18及以上版本
-直接在根目录新建一个名为 `my.ini` 的文件（因为mysql 5.7.18 zip包不再自带默认ini文件，需要手动创建）
-把下面代码放进去并保存
+
+直接在根目录新建一个名为 `my.ini` 的文件（因为mysql 5.7.18 zip包不再自带默认ini文件，需要手动创建），把下面代码放进去并保存
 ```
 	[mysqld]
 	basedir = Path:/to/mysql
@@ -185,6 +200,7 @@ Visual C++ Redistributable for Visual Studio 2015 （即VC14）
 ```
 
 ### 2.初始化+安装mysql
+
 打开命令提示符（在已经配置好环境变量的前提下），先后输入:
 
 命令：`mysqld --initialize`      直接初始化mysql，生成data文件夹中的文件.
@@ -226,9 +242,13 @@ Visual C++ Redistributable for Visual Studio 2015 （即VC14）
 ## 配置环境变量
 
 1.前往`控制面板\所有控制面板项\系统`，或者直接在桌面上，我的电脑右键 -> 属性
+
 2.点击左边侧边栏`高级系统设置`,点击`环境变量`
+
 3.在第二个框，找到名为`Path`的变量，选中，点击编辑按钮
+
 4.在变量值后面添加你的安装目录内的exe程序的位置（mysql和apache一般是bin文件夹，php时根目录），变量之间用半角分号`;`隔开
+
 例如：`D:/AMP/apache/bin;D:/AMP/mysql/bin;D:/AMP/php;`
 
 
@@ -244,17 +264,30 @@ Visual C++ Redistributable for Visual Studio 2015 （即VC14）
 ## MSVCR120.dll丢失错误，查看对应丢失的VC++版本并下载安装
 
 msvcp、msvcr、vcomp140.dll属于VC++2015版
+
 msvcp、msvcr、vcomp120.dll属于VC++2013版
+
 msvcp、msvcr、vcomp110.dll属于VC++2012版
+
 msvcp、msvcr、vcomp100.dll属于VC++2010版
+
 msvcp、msvcr、vcomp90.dll属于VC++2008版
 
-官方下载地址
+
+### 官方下载地址
+
 Visual C++ Redistributable for Visual Studio 2010 
+
 `https://www.microsoft.com/en-us/download/details.aspx?id=5555`
+
 Visual C++ Redistributable for Visual Studio 2012 （即VC11）
+
 `https://www.microsoft.com/en-us/download/details.aspx?id=30679`
+
 Visual C++ Redistributable for Visual Studio 2013 （即VC12）
+
 `https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=40784`
+
 Visual C++ Redistributable for Visual Studio 2015 （即VC14）
+
 `https://www.microsoft.com/en-us/download/details.aspx?id=53840`
