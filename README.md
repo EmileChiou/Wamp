@@ -36,8 +36,9 @@ Visual C++ Redistributable for Visual Studio 2015 （即VC14）
 
 1.配置Apache服务的目录
 
-搜索`ServerRoot`，修改`ServerRoot: "Path:/to/Apahce2.4"`
+搜索`Define SRVROOT`，修改`Define SRVROOT "Path:/to/Apahce2.4"`
 
+搜索`ServerRoot`，修改`ServerRoot "Path:/to/Apahce2.4"`
 
 2.配置虚拟主机目录，即浏览器访问`localhost`时指向的目录
 
